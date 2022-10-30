@@ -6,7 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>   
-    <script src="aplicacion Js Ingresos/app.js"></script>
+<body onload="cargarApp()">
+    <div id="presupuesto">presupuesto</div>
+    <div id="porcentajeEgreso">procentaje egreso</div> 
+    <div id="egresos">egresos:</div> 
+    <div id="ingresos">ingresos:</div>
+
+
+    <div class="contenedor limpiarEstilos">
+        <div class="ingreso">
+            <h2 class="ingreso_titulo">ingreso</h2>
+        </div id="lista-ingresos">
+            <div class="elemento limpiarEstilos ">
+                <div class="elementodescripcion">salario</div>
+            <div class="derecha limpiar estilos">
+                <div class="elemenro-valor">10000</div>
+                <div class="elemento-eliminar">
+                    <button class="elemento-eliminar--btn">
+                        <ion-icon name="close-circle-outline"></ion-icon>
+                    </button>
+                </div>
+            </div>
+            <div class="elemento limpiarEstilos ">
+                <div class="elementodescripcion">venta de vehiculo</div>
+            <div class="derecha limpiar estilos">
+                <div class="elemenro-valor">800000</div>
+                <div class="elemento-eliminar">
+                    <button class="elemento-eliminar--btn">
+                        <ion-icon name="close-circle-outline"></ion-icon>
+                    </button>
+                </div>
+            </div>
+        </div>        
+        </div>
+
+    </div>
+    <script src="./app.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> 
+    
 </body>
 </html>

@@ -100,4 +100,41 @@ const egresos =[
 ]
 
 /* ahora defino una funcion para cargar en el html(a traves del evento onload) */
-let cargar = () => {};
+let cargarApp = () => {
+    cargarCabecero();
+};
+/* ahora a definir una variable que almacenara el total de los ingresos por medio
+ de una arrow function o funcion flecha */
+
+let totalIngresos = () => {
+    let total = 0;
+    for(let v of ingresos){
+        total +=v.valor;        
+    };
+    return total;
+};
+
+let totalEgresos = () => {
+    let totalE = 0;
+    for(let v of ingresos){
+        totalE +=v.valor;        
+    };
+    return totalE;
+};
+
+let cargarCabecero = () => {
+    let presupuesto = totalEgresos() - totalEgresos();
+    let porcentajeEgreso = totalEgresos() / totalIngresos();
+    document.getElementById('presupuesto').innerHTML = formatoMoneda(presupuesto);
+    document.getElementById('porcentajeEgreso').innerHTML = formatoPorcentaje(porcentajeEgreso);
+    document.getElementById('ingresos').innerHTML = formatoMoneda(totalIngresos());
+    document.getElementById('egresos').innerHTML = formatoMoneda(totalEgresos());
+}
+
+    const formatoMoneda = (variableConvertir) => {
+        return variableConvertir.toLocaleString('en-US', {style: "currency", currency: "USD", minimumFractionDigits: 2 })
+    }
+    const formatoPorcentaje = (aPorcentaje) => {
+        return aPorcentaje.toLocaleString('en-US', {style: "percent", minimumFractionDigits: 2 });
+
+    }
