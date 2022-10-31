@@ -153,11 +153,60 @@ let cargarCabecero = () => {
         hora renegando porque no funcionada el js  */
         document.getElementById('resultado').innerHTML = HTML;
     };
-
-    const crearIngresoHTML = (ingreso) => {
+    const crearIngresoHTML = (ingreso)=>{
+        let HTML = `
+        <div class="elemento limpiarEstilos">
+        <div class="elemento_descripcion">${ingreso.propDescripcion}</div>
+        <div class="derecha limpiarEstilos">
+            <div class="elemento_valor">+ ${formatoMoneda(ingreso.propValor)}</div>
+            <div class="elemento_eliminar">
+                <button class='elemento_eliminar--btn'>
+                    <ion-icon name="close-circle-outline"
+                    onclick="eliminarIngreso(${ingreso.atributoId})"></ion-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+        `;
+        return HTML;
+    }
+    /* const crearIngresoHTML = (ingreso) => {
          let HTML = `         
          <p>${ingreso.propDescripcion}</p>         
         <p>${formatoMoneda(ingreso.propValor)}</p>            
          `;
          return HTML;
+    } */
+
+    const eliminarIngreso = (atributoId) => {
+        let indiceEliminar = ingresos.findIndex(ingreso => ingreso.atributoId === atributoId);
+        ingresos.splice(indiceEliminar, 1);
+        cargarCabecero();
+        cargarIngresos();
     }
+
+    let agregarDato = () => {
+        let formulario = document.forms['forma'];
+        /* esto recolecta el formulario del html en esta variable y voy
+        desmenuzando cada dato que requiero en una variable aparte, o sea
+        recuperando cada uno de esos elementos input del html */
+        let tipo = formulario['tipo'];
+        let descripcion  = formulario['descripcion'];
+        let valor = formulario ['valor'];
+        if(descripcion.value !== '' && valor.value !== ''){
+            /* el valor ingreso o egreso corresponde al nombre de las clases
+            o plantillas creadas anteriormente en las constantes como arreglos */
+            if(tipo.value ==='ingreso'){
+                /* egresos es el arreglo, push es un metodo de arreglos */
+                ingresos.push(new Ingreso(descripcion.value , Number(valor.value)));
+                cargarCabecero();
+                cargarIngresos();
+            }
+            else if (tipo.value === 'egreso'){
+                /* egresos es el arreglo, push es un metodo de arreglos */
+                egresos.push(new Ingreso(descripcion.value , Number(valor.value)));
+                cargarCabecero();
+                cargarIngresos();
+            }
+        }        
+    };
