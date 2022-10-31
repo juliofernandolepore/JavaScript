@@ -90,18 +90,19 @@ const ingresos = [
     /* DENTRO DEL ARREGLO (array) creo un objeto o instancia de la clase
     hija Ingreso y le paso los argumentos correspondientes de salario (descripcion)
     y 90000 (valor) */
-    new Ingreso("salario",90000),
-    new Ingreso("salario", 60000)
+    new Ingreso("sueldo1",600),
+    new Ingreso("salario", 60000),
 ]
 
 const egresos =[
     new Egreso("gasto", 50000),
-    new Egreso("gasto", 4000)
+    new Egreso("gasto", 4000),
 ]
 
 /* ahora defino una funcion para cargar en el html(a traves del evento onload) */
 let cargarApp = () => {
     cargarCabecero();
+    cargarIngresos();
 };
 /* ahora a definir una variable que almacenara el total de los ingresos por medio
  de una arrow function o funcion flecha */
@@ -137,4 +138,26 @@ let cargarCabecero = () => {
     const formatoPorcentaje = (aPorcentaje) => {
         return aPorcentaje.toLocaleString('en-US', {style: "percent", minimumFractionDigits: 2 });
 
+    }
+
+    const cargarIngresos = () => {
+        let HTML = "";
+        /* recupera 1 arreglo por interacion (descripcion) y
+        (valor) de los arreglos en la constante ingresos */
+        for(let ingreso of ingresos){
+            /* suma acumulativa(suma en asignacion) */
+            HTML += crearIngresoHTML(ingreso);
+            /* ingreso es el arreglo con los valores */
+        }
+        /* no confundir getElementById con otro medoto, estuve media
+        hora renegando porque no funcionada el js  */
+        document.getElementById('resultado').innerHTML = HTML;
+    };
+
+    const crearIngresoHTML = (ingreso) => {
+         let HTML = `         
+         <p>${ingreso.propDescripcion}</p>         
+        <p>${formatoMoneda(ingreso.propValor)}</p>            
+         `;
+         return HTML;
     }
