@@ -33,3 +33,8 @@ se le adiciona mas contenido sin borrar el anterior como el caso siguiente. */
  var mostrarH2 = () => document
  .getElementById("titulo2")
  .innerHTML += "<br/>he sido agregado con una funcion flecha";
+
+
+ /* cambio de colores con javascript sin utilizar un archivo css */
+
+ var cambioColor = () => document.getElementById("titulo2").style.color ="blue";
