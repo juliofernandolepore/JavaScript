@@ -28,8 +28,9 @@ tituloH1.innerText = "cambio de H1";
 /* con el metodo innerText me permite cambiar el texto contenido en el ID almacenado
 en la variable */
 
-/* metodo: obtener elemento por etiqueta (getElementByTagName), POR LO QUE LAS 
-ETIQUETAS EN EL HTML TENGAN O NO ID (IDENTIFICADOR) NO ES RELEVANTE PARA ESTE METODO */
+
+/* METODO getElementByTagName), POR LO QUE LAS ETIQUETAS EN EL HTML TENGAN 
+O NO ID (IDENTIFICADOR) NO ES RELEVANTE PARA ESTE METODO */
 let todosLosParrafos = document.getElementsByTagName("p");
 
 console.log(`numero de parrafos: ${todosLosParrafos[1]}`);
@@ -42,3 +43,21 @@ for(let iterador = 0; iterador < todosLosParrafos.length; iterador++){
 }
 /* necesariamente .innertext para que me muestre la propiedad de texto de cada
 elemento que recorro del arreglo de parrafos */
+console.log("***********************************");
+
+
+/* METODO: getElementByClassName ( obtener elemento por class) */
+let clases = document.getElementsByClassName("azul");
+for(let i= 0; i < clases.length; i++){
+    console.log(`indice: ${i} el contenido es: ${clases[i].innerText}`);
+}
+
+console.log("******************************");
+
+/* CICLO FOR OF, opcional al for comun */
+for(let indice of clases){
+    console.log(`indice: ${indice.innerHTML}`);
+}
+/* se obtiene el mismo resultado a traves del metodo getElementByClassBame,
+ya que se devuelve un arreglo de clases almacenadas en un arreglo dentro de una
+variable y que luego voy a iterar con el ciclo FOR y el metdodo innerText */
