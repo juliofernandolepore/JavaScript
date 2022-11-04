@@ -61,3 +61,14 @@ for(let indice of clases){
 /* se obtiene el mismo resultado a traves del metodo getElementByClassBame,
 ya que se devuelve un arreglo de clases almacenadas en un arreglo dentro de una
 variable y que luego voy a iterar con el ciclo FOR y el metdodo innerText */
+console.log("*************************************");
+
+
+/* METODO: querySelectorAll*/
+let allP = document.querySelectorAll("p.azul");
+for(let i= 0; i < allP.length; i++){
+    console.log(`indice: ${i} el contenido es: ${allP[i].innerText}`);
+}
+/* aqui se combinan selectores entre ellos: tags y class, o sea
+etiquetas y clases como se ve en el ejemplo anterior, o sea va a seleccionar
+todos los parrafos que tengan aplicada una clase */
