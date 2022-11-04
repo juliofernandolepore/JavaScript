@@ -9,6 +9,8 @@
     </style>
 </head>
 <body>
+    <h1 id="titulo">aprendiendo a manipular el DOM</h1>
+    <h2 id="titulo2">otro h2 que sera modificado</h2>
     <form id="formulario">
         nombre: <input type="text" name="nombre" value="nombre por defecto">
         <br>
@@ -17,6 +19,11 @@
     </form>
     <button onclick="funcion1()">mostrar</button>
     <div id="valores"></div>
+    <button onclick="mostrar()">mostrar</button>
+    <br/>
+    <button onclick="mostrarH1()">mostrar h1 modificado</button>
+    <br>
+    <button onclick="mostrarH2()">mostrar h2 modificado</button>
     <script src="../domFormularios/dom.js"></script>
 </body>
 </html>
